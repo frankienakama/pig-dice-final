@@ -1,4 +1,6 @@
 //back-end
+var thePigs = []
+
 function Pig(name) {
   this.pigName = name;
   this.currentRoll = 0;
@@ -13,6 +15,8 @@ Pig.prototype.mudRoll = function() {
 function oneCheck(input, Pig) {
   if(input === 1) {
     Pig.turnTotal = 0;
+    thePigs.reverse();
+    thePigs[0].turnTotal = 0;
   } else {
     Pig.turnTotal += input;
   };
@@ -32,29 +36,43 @@ $(function(){
   $("#begin").submit(function(event) {
     event.preventDefault();
 
-    var name = $("#player1-name").val();
-    var newPig = new Pig(name);
+    var name1 = $("#player1-name").val();
+    var name2 = $("#player2-name").val();
+    var newPig1 = new Pig(name1);
+    var newPig2 = new Pig(name2);
+    thePigs.push(newPig1, newPig2);
+    $(".winner-display").text(thePigs[0].pigName + "'s turn!")
+
+
     $(".start").hide();
-    $("#first-pig").text(newPig.pigName);
+    $("#first-pig").text(newPig1.pigName);
+    $("#second-pig").text(newPig2.pigName);
     $(".game-pane").show();
 
     //Roll Listener
     $("#roll").click(function(){
-      var turnRoll = parseInt(newPig.mudRoll());
-      oneCheck(turnRoll, newPig);
+      var turnRoll = parseInt(thePigs[0].mudRoll());
+      oneCheck(turnRoll, thePigs[0]);
       $(".turn-roll").text(turnRoll);
-      $(".player1-total").text(newPig.turnTotal);
+      $(".player-total").text(thePigs[0].turnTotal);
+      $(".winner-display").text(thePigs[0].pigName + "'s turn!")
 
 
       $("#hold").off().click(function(){
-        newPig.gameTotal += newPig.turnTotal;
-        $(".player1-game-total").text(newPig.gameTotal);
+        thePigs[0].gameTotal += thePigs[0].turnTotal;
+        $(".player1-game-total").text(newPig1.gameTotal);
+        $(".player2-game-total").text(newPig2.gameTotal);
 
-        if (winCheck(newPig.gameTotal) === true) {
-          $(".winner-display").text(newPig.pigName + " Wins!");
+        if (winCheck(thePigs[0].gameTotal) === true) {
+          $(".winner-display").text(thePigs[0].pigName + " Wins!");
         } else {
 
         };
+        thePigs.reverse();
+        $(".winner-display").text(thePigs[0].pigName + "'s turn!")
+        thePigs[0].turnTotal = 0;
+        $(".turn-roll").text(turnRoll);
+        $(".player-total").text(thePigs[0].turnTotal);
 
       });
     });
