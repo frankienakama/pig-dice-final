@@ -14,9 +14,8 @@ Pig.prototype.mudRoll = function() {
 function oneCheck(input, Pig) {
   if(input === 1) {
     thePigs.forEach(function(item){
-      item.turnTotal = 0;
+    item.turnTotal = 0;
     });
-    thePigs.reverse();
   } else {
     Pig.turnTotal += input;
   };
@@ -59,8 +58,8 @@ $(function(){
     var showGameTotal = function(){
       $(".player1-game-total").text(newPig1.gameTotal);
       $(".player2-game-total").text(newPig2.gameTotal);
-      $(".winner-display").text(thePigs[0].pigName + "'s turn!")
-    };
+      $(".winner-display").text(thePigs[0].pigName + "'s turn!");
+    }
 
 
     //Game begin
@@ -80,35 +79,36 @@ $(function(){
       $("#hold").removeClass("disabled").prop('disabled', false);
 
       if (turnRoll === 1) {
+        alert("You made it!");
         turnSwitch();
         showGameTotal();
-      }
+      } else {
+        $("#hold").off().click(function(){
+          thePigs[0].gameTotal += thePigs[0].turnTotal;
 
-      $("#hold").off().click(function(){
-        thePigs[0].gameTotal += thePigs[0].turnTotal;
+          if (winCheck(thePigs[0].gameTotal) === true) {
+            $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
+            $("#play-again").show();
+            $("#roll, #hold").addClass("disabled").prop('disabled', true);
+            showGameTotal();
+          } else {
+            turnSwitch();
+            showGameTotal();
+          };
+          $(".turn-roll").text(turnRoll);
+          $(".player-total").text(thePigs[0].turnTotal);
+        });
 
-        if (winCheck(thePigs[0].gameTotal) === true) {
-          $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
-          $("#play-again").show();
-          $("#roll, #hold").addClass("disabled").prop('disabled', true);
+        $("#play-again").off().click(function(){
+          $(".previous-games").show();
+          $(".history").prepend("<li>" + thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!</li>");
+          reset();
           showGameTotal();
-        } else {
-          turnSwitch();
-          showGameTotal();
-        };
-        $(".turn-roll").text(turnRoll);
-        $(".player-total").text(thePigs[0].turnTotal);
-      });
 
-      $("#play-again").off().click(function(){
-        $(".previous-games").show();
-        $(".history").prepend("<li>" + thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!</li>");
-        reset();
-        showGameTotal();
-
-        $("#play-again").hide();
-        $("#roll, #hold").removeClass("disabled").prop('disabled', false);
-      });
+          $("#play-again").hide();
+          $("#roll, #hold").removeClass("disabled").prop('disabled', false);
+        });
+      };
     });
   });
 });
