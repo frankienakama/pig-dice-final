@@ -31,7 +31,7 @@
             </div>
           </form>
         </div>
-        <div class="col-sm-3 game-pane">
+        <div class="col-sm-6 game-pane">
           <div class="ear1">
             <!--Just visual triangles-->
           </div>
@@ -44,7 +44,7 @@
             <div class="player1 col-sm-6">
               <h3 id="first-pig"></h3>
               <div class="total-score-box">
-                <h4>Game Total: <span class="player1-game-total"></span></h4>
+                <h4>Game Total: <span class="player1-game-total">0</span></h4>
               </div>
             </div>
 
@@ -52,23 +52,30 @@
             <div class="player2 col-sm-6">
               <h3 id="second-pig"></h3>
               <div class="total-score-box">
-                <h4>Game Total: <span class="player2-game-total"></span></h4>
+                <h4>Game Total: <span class="player2-game-total">0</span></h4>
               </div>
             </div>
           </div>
 
+          <div class="row">
+            <!--Current Player Turn Score Box-->
+            <div class="col-sm-3">
 
-          <!--Current Player Turn Score Box-->
-          <div class="turn-total">
-            <div class="total-score-box">
-              <h4>Last Roll: <span class="turn-roll"></span></h4>
-              <h4>Current Total:</h4><h2><span class="player-total"></span></h2>
             </div>
-          </div>
-          <!--Button Box-->
-          <div class="buttons-div">
-            <button type="button" id="roll" class="btn btn-primary">Roll</button>
-            <button type="button" id="hold" class="btn btn-primary">Hold</button>
+            <div class="turn-total col-sm-6">
+              <div class="total-score-box">
+                <h4>Last Roll: <span class="turn-roll"></span></h4>
+                <h4>Current Total:</h4><h2><span class="player-total"></span></h2>
+              </div>
+              <!--Button Box-->
+              <div class="buttons-div">
+                <button type="button" id="roll" class="btn btn-primary">Roll</button>
+                <button type="button" id="hold" class="btn btn-primary">Hold</button>
+              </div>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
           </div>
         </div>
       </div>

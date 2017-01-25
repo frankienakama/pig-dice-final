@@ -3,7 +3,6 @@ var thePigs = []
 
 function Pig(name) {
   this.pigName = name;
-  this.currentRoll = 0;
   this.gameTotal = 0;
   this.turnTotal = 0;
 }
@@ -60,20 +59,22 @@ $(function(){
 
       $("#hold").off().click(function(){
         thePigs[0].gameTotal += thePigs[0].turnTotal;
-        $(".player1-game-total").text(newPig1.gameTotal);
-        $(".player2-game-total").text(newPig2.gameTotal);
 
         if (winCheck(thePigs[0].gameTotal) === true) {
-          $(".winner-display").text(thePigs[0].pigName + " Wins!");
+          $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
+          thePigs.forEach(function(item){
+            item.gameTotal = 0;
+            item.turnTotal = 0;
+          });
         } else {
-
+          thePigs.reverse();
+          $(".winner-display").text(thePigs[0].pigName + "'s turn!")
+          thePigs[0].turnTotal = 0;
         };
-        thePigs.reverse();
-        $(".winner-display").text(thePigs[0].pigName + "'s turn!")
-        thePigs[0].turnTotal = 0;
         $(".turn-roll").text(turnRoll);
         $(".player-total").text(thePigs[0].turnTotal);
-
+        $(".player1-game-total").text(newPig1.gameTotal);
+        $(".player2-game-total").text(newPig2.gameTotal);
       });
     });
   });

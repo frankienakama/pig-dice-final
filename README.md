@@ -17,7 +17,7 @@ Specs:
 
 3) Add button for hold, which adds the current turn total to a game total.
 
-4) If the player rolls a one, stop ability to roll, and add zero to game total.
+4) If the player rolls a one, and add zero to game total.
 
 5) If the play reaches 100, output a "Winner" message.
 
@@ -36,3 +36,4 @@ Ice Box:
 
 Keep track of previous games.
 Single Player Mode.
+stop ability to roll
