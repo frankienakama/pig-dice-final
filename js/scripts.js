@@ -25,11 +25,18 @@ $(function(){
 
     //Roll Listener
     $("#roll").click(function(){
-      var turnRoll = newPig.mudRoll()
+      var turnRoll = parseInt(newPig.mudRoll());
       $(".turn-roll").text(turnRoll);
       newPig.turnTotal += turnRoll;
+      console.log("newPig turntotal" + newPig.turnTotal);
       $(".player1-total").text(newPig.turnTotal);
-    });
+      console.log("Turn Roll" + turnRoll);
 
+      $("#hold").off().click(function(){
+        newPig.gameTotal += newPig.turnTotal;
+        $(".player1-game-total").text(newPig.gameTotal);
+        console.log("newPig turntotal" + newPig.turnTotal);
+      });
+    });
   });
 });
