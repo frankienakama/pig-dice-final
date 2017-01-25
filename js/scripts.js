@@ -13,6 +13,7 @@ Pig.prototype.mudRoll = function() {
 
 //front-end
 $(function(){
+  //Submit Listener
   $("#begin").submit(function(event) {
     event.preventDefault();
 
@@ -21,6 +22,14 @@ $(function(){
     $(".start").hide();
     $("#first-pig").text(newPig.pigName);
     $(".game-pane").show();
-    $(".player1-total").text(newPig.mudRoll());
+
+    //Roll Listener
+    $("#roll").click(function(){
+      var turnRoll = newPig.mudRoll()
+      $(".turn-roll").text(turnRoll);
+      newPig.turnTotal += turnRoll;
+      $(".player1-total").text(newPig.turnTotal);
+    });
+
   });
 });
