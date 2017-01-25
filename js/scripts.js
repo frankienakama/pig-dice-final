@@ -10,6 +10,21 @@ Pig.prototype.mudRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
+function oneCheck(input, Pig) {
+  if(input === 1) {
+    Pig.turnTotal = 0;
+  } else {
+    Pig.turnTotal += input;
+  };
+};
+
+function winCheck(input){
+  if (input >= 100) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 //front-end
 $(function(){
@@ -26,16 +41,21 @@ $(function(){
     //Roll Listener
     $("#roll").click(function(){
       var turnRoll = parseInt(newPig.mudRoll());
+      oneCheck(turnRoll, newPig);
       $(".turn-roll").text(turnRoll);
-      newPig.turnTotal += turnRoll;
-      console.log("newPig turntotal" + newPig.turnTotal);
       $(".player1-total").text(newPig.turnTotal);
-      console.log("Turn Roll" + turnRoll);
+
 
       $("#hold").off().click(function(){
         newPig.gameTotal += newPig.turnTotal;
         $(".player1-game-total").text(newPig.gameTotal);
-        console.log("newPig turntotal" + newPig.turnTotal);
+
+        if (winCheck(newPig.gameTotal) === true) {
+          $(".winner-display").text(newPig.pigName + " Wins!");
+        } else {
+
+        };
+
       });
     });
   });
