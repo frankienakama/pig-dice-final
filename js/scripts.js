@@ -11,7 +11,7 @@ Pig.prototype.mudRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-function oneCheck(input, Pig) {
+function addToTotal(input, Pig) {
   if(input === 1) {
     thePigs.forEach(function(item){
     item.turnTotal = 0;
@@ -29,6 +29,20 @@ function winCheck(input){
   };
 };
 
+var reset = function(){
+  thePigs.forEach(function(item){
+    item.gameTotal = 0;
+    item.turnTotal = 0;
+  });
+};
+
+var turnSwitch = function(){
+  thePigs.reverse();
+  thePigs.forEach(function(item){
+    item.turnTotal = 0;
+  });
+}
+
 //front-end
 $(function(){
   //Submit Listener
@@ -42,18 +56,6 @@ $(function(){
     thePigs.push(newPig1, newPig2);
 
     // Front End Functions
-
-    var reset = function(){
-      thePigs.forEach(function(item){
-        item.gameTotal = 0;
-        item.turnTotal = 0;
-      });
-    };
-
-    var turnSwitch = function(){
-      thePigs.reverse();
-      $("#hold").addClass("disabled").prop('disabled', true);
-    }
 
     var showGameTotal = function(){
       $(".player1-game-total").text(newPig1.gameTotal);
@@ -73,15 +75,15 @@ $(function(){
     //Roll Listener
     $("#roll").click(function(){
       var turnRoll = parseInt(thePigs[0].mudRoll());
-      oneCheck(turnRoll, thePigs[0]);
+      addToTotal(turnRoll, thePigs[0]);
       $(".turn-roll").text(turnRoll);
       $(".player-total").text(thePigs[0].turnTotal);
       $("#hold").removeClass("disabled").prop('disabled', false);
 
       if (turnRoll === 1) {
-        alert("You made it!");
         turnSwitch();
         showGameTotal();
+        $("#hold").addClass("disabled").prop('disabled', true);
       } else {
         $("#hold").off().click(function(){
           thePigs[0].gameTotal += thePigs[0].turnTotal;
@@ -97,6 +99,7 @@ $(function(){
           };
           $(".turn-roll").text(turnRoll);
           $(".player-total").text(thePigs[0].turnTotal);
+          $("#hold").addClass("disabled").prop('disabled', true);
         });
 
         $("#play-again").off().click(function(){
