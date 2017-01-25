@@ -36,4 +36,3 @@ Ice Box:
 
 Keep track of previous games.
 Single Player Mode.
-stop ability to roll

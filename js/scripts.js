@@ -48,10 +48,13 @@ $(function(){
       thePigs.forEach(function(item){
         item.gameTotal = 0;
         item.turnTotal = 0;
-        $("#play-again").show();
-        $("#roll, #hold").addClass("disabled").prop('disabled', true);;
       });
     };
+
+    var turnSwitch = function(){
+      thePigs.reverse();
+      $("#hold").addClass("disabled").prop('disabled', true);
+    }
 
     var showGameTotal = function(){
       $(".player1-game-total").text(newPig1.gameTotal);
@@ -79,17 +82,20 @@ $(function(){
       $(".player-total").text(thePigs[0].turnTotal);
       $("#hold").removeClass("disabled").prop('disabled', false);
 
+      // if (turnRoll === 1) {
+      //   turnSwitch();
+      // }
 
       $("#hold").off().click(function(){
         thePigs[0].gameTotal += thePigs[0].turnTotal;
-        $("#hold").addClass("disabled").prop('disabled', true);;
 
         if (winCheck(thePigs[0].gameTotal) === true) {
           $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
-          reset();
+          $("#play-again").show();
+          $("#roll, #hold").addClass("disabled").prop('disabled', true);
           showGameTotal();
         } else {
-          thePigs.reverse();
+          turnSwitch();
           whoseTurn();
           showGameTotal();
           thePigs[0].turnTotal = 0;
@@ -99,11 +105,13 @@ $(function(){
       });
 
       $("#play-again").off().click(function(){
+        $(".previous-games").show();
+        $(".history").prepend("<li>" + thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!</li>");
         reset();
         whoseTurn();
         showGameTotal();
         $("#play-again").hide();
-        $("#roll, #hold").removeClass("disabled").prop('disabled', false);;
+        $("#roll, #hold").removeClass("disabled").prop('disabled', false);
       });
     });
   });
