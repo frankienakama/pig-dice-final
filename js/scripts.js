@@ -18,5 +18,9 @@ $(function(){
 
     var name = $("#player1-name").val();
     var newPig = new Pig(name);
+    $(".start").hide();
+    $("#first-pig").text(newPig.pigName);
+    $(".game-pane").show();
+    $(".player1-total").text(newPig.mudRoll());
   });
 });
