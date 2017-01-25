@@ -1,3 +1,12 @@
+body {
+  background-color: #e2f5ff;
+  font-family: 'Schoolbell', cursive;
+}
+
+.jumbotron {
+  background-color: #e2f5ff;
+}
+
 .game-pane, #play-again, .previous-games {
   display: none;
 }
@@ -5,4 +14,128 @@
 .total-score-box {
   border: 2px solid black;
   height: 200px;
+}
+
+
+.wholepig {
+  position: relative;
+}
+
+.ears {
+  background: #1c2944;
+  height: 40px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 120px;
+  box-shadow: -70px 0 #1c2944,
+              -70px 0 0 8px #f7b8fc,
+              0 0 0 8px #f7b8fc;
+}
+
+.face {
+  background: #ffe0fc;
+  height: 150px;
+  width: 170px;
+  box-shadow: 4px 4px #e0afde;
+  border-radius: 30%;
+  position: relative;
+  top: 20px;
+  left: -118px;
+}
+
+.eyes {
+  background: #1c2944;
+  height: 20px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  top: 50px;
+  left: 120px;
+  box-shadow: -70px 0 #1c2944;
+}
+
+.mouth {
+  background: #f8a0ff;
+  height: 30px;
+  width: 60px;
+  position: relative;
+  top: 33px;
+  left: -65px;
+  border-radius: 30%;
+  box-shadow: 3px 3px #f787ff;
+}
+
+.nostrils {
+  background: #1c2944;
+  height: 15px;
+  width: 5px;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 45px;
+  box-shadow: -30px 0 #1c2944;
+}
+
+
+.wholepig2 {
+  position: relative;
+}
+
+.ears2 {
+  background: #1c2944;
+  height: 40px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 75%;
+  box-shadow: -70px 0 #1c2944,
+              -70px 0 0 8px #964d9b,
+              0 0 0 8px #964d9b;
+}
+
+.face2 {
+  background: #f8a0ff;
+  height: 150px;
+  width: 170px;
+  box-shadow: 4px 4px #964d9b;
+  border-radius: 30%;
+  position: relative;
+  top: 20px;
+  left: -118px;
+}
+
+.eyes2 {
+  background: #1c2944;
+  height: 20px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  top: 50px;
+  left: 120px;
+  box-shadow: -70px 0 #1c2944;
+}
+
+.mouth2 {
+  background: #964d9b;
+  height: 30px;
+  width: 60px;
+  position: relative;
+  top: 33px;
+  left: -65px;
+  border-radius: 30%;
+  box-shadow: 3px 3px #69366d;
+}
+
+.nostrils2 {
+  background: #1c2944;
+  height: 15px;
+  width: 5px;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 45px;
+  box-shadow: -30px 0 #1c2944;
 }
