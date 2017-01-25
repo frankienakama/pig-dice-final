@@ -59,11 +59,9 @@ $(function(){
     var showGameTotal = function(){
       $(".player1-game-total").text(newPig1.gameTotal);
       $(".player2-game-total").text(newPig2.gameTotal);
-    };
-
-    var whoseTurn = function() {
       $(".winner-display").text(thePigs[0].pigName + "'s turn!")
     };
+
 
     //Game begin
 
@@ -71,7 +69,6 @@ $(function(){
     $("#first-pig").text(newPig1.pigName);
     $("#second-pig").text(newPig2.pigName);
     $(".game-pane").show();
-    whoseTurn();
     showGameTotal();
 
     //Roll Listener
@@ -82,9 +79,10 @@ $(function(){
       $(".player-total").text(thePigs[0].turnTotal);
       $("#hold").removeClass("disabled").prop('disabled', false);
 
-      // if (turnRoll === 1) {
-      //   turnSwitch();
-      // }
+      if (turnRoll === 1) {
+        turnSwitch();
+        showGameTotal();
+      }
 
       $("#hold").off().click(function(){
         thePigs[0].gameTotal += thePigs[0].turnTotal;
@@ -96,9 +94,7 @@ $(function(){
           showGameTotal();
         } else {
           turnSwitch();
-          whoseTurn();
           showGameTotal();
-          thePigs[0].turnTotal = 0;
         };
         $(".turn-roll").text(turnRoll);
         $(".player-total").text(thePigs[0].turnTotal);
@@ -108,8 +104,8 @@ $(function(){
         $(".previous-games").show();
         $(".history").prepend("<li>" + thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!</li>");
         reset();
-        whoseTurn();
         showGameTotal();
+
         $("#play-again").hide();
         $("#roll, #hold").removeClass("disabled").prop('disabled', false);
       });
