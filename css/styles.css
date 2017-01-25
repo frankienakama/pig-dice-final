@@ -1,4 +1,4 @@
-.game-pane {
+.game-pane, #play-again {
   display: none;
 }
 
