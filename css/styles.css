@@ -15,7 +15,12 @@ body {
 }
 
 .centertotal {
-  font-size: 70px;
+  font-size: 90px;
+  text-align: center;
+}
+
+.playernames {
+  font-size: 45px;
   text-align: center;
 }
 
@@ -28,7 +33,7 @@ body {
 }
 
 .total-score-box {
-  padding: 5% 5% 15% 5%;
+  padding: 5%;
   border: 2px solid black;
   border-radius: 10%;
   height: 200px;

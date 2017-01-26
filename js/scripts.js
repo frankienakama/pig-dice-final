@@ -69,6 +69,7 @@ $(function(){
     $(".start").hide();
     $("#first-pig").text(newPig1.pigName);
     $("#second-pig").text(newPig2.pigName);
+    $(".player-total").text(thePigs[0].turnTotal);
     $(".game-pane").show();
     showGameTotal();
 
