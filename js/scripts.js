@@ -8,11 +8,32 @@ function Pig(name) {
   this.turnTotal = 0;
 }
 
+function addGameTotal() {
+  thePigs[0].gameTotal += thePigs[0].turnTotal;
+}
+
+function computerRoll(newPig2) {
+  turnSwitch();
+  if (playerSize === 1 && thePigs[0] === newPig2) {
+    for(var index = 0; newPig2.turnTotal <= 11 && index != 1; index++) {
+      var computerTurnRoll = parseInt(newPig2.mudRoll());
+      addToTotal(computerTurnRoll, newPig2);
+      index = newPig2.turnTotal
+    }
+    addGameTotal();
+    turnSwitch();
+  } else {
+    turnSwitch();
+  }
+}
+
 Pig.prototype.mudRoll = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
 function addToTotal(input, Pig) {
+  console.log(thePigs[0]);
+  console.log("Before Game Total is added: " + thePigs[0].gameTotal);
   if(input === 1) {
     thePigs.forEach(function(item){
     item.turnTotal = 0;
@@ -105,12 +126,12 @@ $(function(){
       $("#hold").removeClass("disabled").prop('disabled', false);
 
       if (turnRoll === 1) {
-        turnSwitch();
-        showGameTotal();
         $("#hold").addClass("disabled").prop('disabled', true);
+        computerRoll(newPig2);
+        showGameTotal();
       } else {
         $("#hold").off().click(function(){
-          thePigs[0].gameTotal += thePigs[0].turnTotal;
+          addGameTotal();
 
           if (winCheck(thePigs[0].gameTotal) === true) {
             $("#play-again").show();
@@ -118,12 +139,13 @@ $(function(){
             showGameTotal();
             $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
           } else {
-            turnSwitch();
+            computerRoll(newPig2);
             showGameTotal();
           };
           $(".turn-roll").text(turnRoll);
           $(".player-total").text(thePigs[0].turnTotal);
           $("#hold").addClass("disabled").prop('disabled', true);
+
         });
 
         $("#play-again").off().click(function(){
