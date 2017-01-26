@@ -98,10 +98,10 @@ $(function(){
           thePigs[0].gameTotal += thePigs[0].turnTotal;
 
           if (winCheck(thePigs[0].gameTotal) === true) {
-            $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
             $("#play-again").show();
             $("#roll, #hold").addClass("disabled").prop('disabled', true);
             showGameTotal();
+            $(".winner-display").text(thePigs[0].pigName + " wins with " + thePigs[0].gameTotal + " points!");
           } else {
             turnSwitch();
             showGameTotal();
