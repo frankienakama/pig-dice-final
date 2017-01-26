@@ -9,6 +9,27 @@ body {
   font-size: 40px;
 }
 
+.cheeks {
+  background: #f8a0ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: 24px;
+  box-shadow: -104px 0 #f8a0ff;
+}
+
+.cheeks2 {
+  background: #db90cc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: 24px;
+  box-shadow: -104px 0 #db90cc;
+}
 
 .winner-display {
   text-align: center;
