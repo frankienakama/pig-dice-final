@@ -119,6 +119,10 @@ $(function(){
       name2 = "Pig 2";
     }
 
+    if (playerSize === 1) {
+      name2 = "Computer";
+    }
+
     //Player Objects
     var newPig1 = new Pig(name1);
     var newPig2 = new Pig(name2);
