@@ -76,6 +76,7 @@ var turnSwitch = function(){
 }
 
 
+
 /////////// Front End
 
 // Display Win For Computer After WinCheck
@@ -86,6 +87,22 @@ var turnSwitch = function(){
     }
   }
 
+  //Game alert
+  var gameAlert = function(input){
+    $(".game-alert").show();
+    $(".game-alert-message").text(input)
+    $(".game-alert-close").click(function(){
+      $(".game-alert").hide();
+    });
+  };
+
+  var computerAlert = function(input){
+    $(".game-alert-pancake").show();
+    $(".game-alert-message-pancake").text(input)
+    $(".game-alert-close-pancake").click(function(){
+      $(".game-alert-pancake").hide();
+    });
+  };
 
 $(function(){
 
@@ -120,7 +137,8 @@ $(function(){
     }
 
     if (playerSize === 1) {
-      name2 = "Computer";
+      name1 = "Your Pig"
+      name2 = "Pancake";
     }
 
     //Player Objects
@@ -153,11 +171,19 @@ $(function(){
 
       //Roll a 1 test
       if (turnRoll === 1) {
+        if (playerSize === 1) {
+          gameAlert("You rolled a 1! Zero points.");
+        } else {
+          gameAlert(thePigs[0].pigName + " rolled a 1! Zero points.");
+        }
         $("#hold").addClass("disabled").prop('disabled', true);
         if (computerRoll(newPig2) === true){
           showGameTotal();
-          $(".winner-display").text("The Computer wins with " + thePigs[0].gameTotal + " points!");
+          $(".winner-display").text("Pancake wins with " + thePigs[0].gameTotal + " points!");
         } else {
+          if (playerSize === 1) {
+            computerAlert("Pancake scored " + newPig2.turnTotal + " points!")
+          }
           turnSwitch();
           showGameTotal();
         }
@@ -173,8 +199,9 @@ $(function(){
           } else {
             if (computerRoll(newPig2) === true){
               showGameTotal();
-              $(".winner-display").text("The Computer wins with " + thePigs[0].gameTotal + " points!");
+              $(".winner-display").text("Pancake wins with " + thePigs[0].gameTotal + " points!");
             } else {
+              gameAlert(thePigs[0].pigName + " has scored " + thePigs[0].turnTotal + " points!");
               turnSwitch();
               showGameTotal();
             }

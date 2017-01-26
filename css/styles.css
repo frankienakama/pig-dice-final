@@ -18,6 +18,10 @@ li {
   font-size: 40px;
 }
 
+.buttons-div {
+  text-align: center;
+}
+
 .cheeks {
   background: #f8a0ff;
   width: 30px;
@@ -56,10 +60,29 @@ li {
 
 .jumbotron {
   background-color: #e2f5ff;
+  height: 200px;
 }
 
-.game-pane, #play-again, .previous-games, .two-player {
+.game-pane, #play-again, .previous-games, .two-player, .game-alert, .game-alert-pancake {
   display: none;
+}
+
+.game-alert-box, .game-alert-box-pancake {
+  background-color: pink;
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  margin-top: 15%;
+}
+
+.game-alert, .game-alert-pancake {
+  background-color: pink;
+  float: left;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 200px;
+  text-align: center;
 }
 
 .total-score-box {
