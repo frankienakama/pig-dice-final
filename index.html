@@ -26,15 +26,21 @@
             <li>First person to 100 wins!</li>
           </ol>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 player-choice">
+          <button type="click" class="btn btn-primary" id="single">Single Player</button>
+          <button type="click" class="btn btn-primary" id="double">Two Players</button>
+        </div>
+        <div class="col-sm-3 two-player">
           <form id="begin">
             <div class="form-group">
               <label for="player1-name"><h3>Player 1:</h3></label>
               <input type="text" id="player1-name" class="form-control" placeholder="optional">
             </div>
             <div class="form-group">
-              <label for="player2-name"><h3>Player 2:</h3></label>
-              <input type="text" id="player2-name" class="form-control" placeholder="optional">
+              <div class="second-player-input">
+                <label for="player2-name"><h3>Player 2:</h3></label>
+                <input type="text" id="player2-name" class="form-control" placeholder="optional">
+              </div>
               <button type="submit" class="btn btn-primary">Oink!</button>
             </div>
           </form>

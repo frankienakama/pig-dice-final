@@ -58,7 +58,7 @@ li {
   background-color: #e2f5ff;
 }
 
-.game-pane, #play-again, .previous-games {
+.game-pane, #play-again, .previous-games, .two-player {
   display: none;
 }
 

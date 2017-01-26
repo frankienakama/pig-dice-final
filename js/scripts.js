@@ -1,5 +1,6 @@
 //back-end
 var thePigs = []
+var playerSize;
 
 function Pig(name) {
   this.pigName = name;
@@ -46,6 +47,20 @@ var turnSwitch = function(){
 //front-end
 $(function(){
   //Submit Listener
+
+  $("#single").click(function(){
+    playerSize = 1;
+    $(".player-choice").hide();
+    $(".second-player-input").hide();
+    $(".two-player").show();
+  });
+
+  $("#double").click(function(){
+    playerSize = 2;
+    $(".player-choice").hide();
+    $(".two-player").show();
+  });
+
   $("#begin").submit(function(event) {
     event.preventDefault();
     //Main Variables
