@@ -3,6 +3,21 @@ body {
   font-family: 'Schoolbell', cursive;
 }
 
+.btn {
+  margin: 10% 5% 10% 0;
+  padding: 2% 5% 2% 5%;
+  font-size: 40px;
+}
+
+.winner-display {
+  text-align: center;
+}
+
+.centertotal {
+  font-size: 70px;
+  text-align: center;
+}
+
 .jumbotron {
   background-color: #e2f5ff;
 }
@@ -12,13 +27,34 @@ body {
 }
 
 .total-score-box {
+  padding: 5%;
   border: 2px solid black;
+  border-radius: 10%;
   height: 200px;
 }
 
 
 .wholepig {
   position: relative;
+  top: -60px;
+}
+
+.pig1text {
+  position: relative;
+  width: 170px;
+  top: 68px;
+  left: -100px;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.pig2text {
+  position: relative;
+  width: 170px;
+  top: 68px;
+  left: -100px;
+  text-align: center;
+  padding-bottom: 5%;
 }
 
 .ears {
@@ -81,6 +117,7 @@ body {
 
 .wholepig2 {
   position: relative;
+  top: -60px;
 }
 
 .ears2 {
