@@ -15,19 +15,26 @@
         <h1>Pig Dice</h1>
         <h2 class="winner-display"></h2>
       </div>
-      <div class="row">
-        <div class="col-sm-3">
-
+      <div class="row start">
+        <div class="col-sm-4 instructions">
+          <h2>How to Play:</h2>
+          <ol>
+            <li>During your turn, click roll!</li>
+            <li>If you roll a 1, your turn ends and you gain zero points.</li>
+            <li>If you roll any other number, it gets added to the turn total.</li>
+            <li>If you choose to hold, then the turn total is added to your game total and it is then the other player's turn.</li>
+            <li>First person to 100 wins!</li>
+          </ol>
         </div>
-        <div class="col-sm-3 start">
+        <div class="col-sm-3">
           <form id="begin">
             <div class="form-group">
               <label for="player1-name"><h3>Player 1:</h3></label>
-              <input type="text" id="player1-name" class="form-control">
+              <input type="text" id="player1-name" class="form-control" placeholder="optional">
             </div>
             <div class="form-group">
               <label for="player2-name"><h3>Player 2:</h3></label>
-              <input type="text" id="player2-name" class="form-control">
+              <input type="text" id="player2-name" class="form-control" placeholder="optional">
               <button type="submit" class="btn btn-primary">Oink!</button>
             </div>
           </form>

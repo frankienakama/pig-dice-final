@@ -3,6 +3,15 @@ body {
   font-family: 'Schoolbell', cursive;
 }
 
+li {
+  font-size: 23px;
+  padding-bottom: 10%;
+}
+
+.instructions {
+  margin-right: 20%;
+}
+
 .btn {
   margin: 10% 5% 10% 0;
   padding: 2% 5% 2% 5%;
@@ -41,7 +50,7 @@ body {
 }
 
 .playernames {
-  font-size: 45px;
+  font-size: 43px;
   text-align: center;
 }
 
@@ -61,6 +70,7 @@ body {
 }
 
 .roll-score-box {
+  margin-top: 5%;
   padding: 5% 5% 15% 5%;
   border: 2px solid black;
   border-radius: 10%;

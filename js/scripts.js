@@ -52,11 +52,11 @@ $(function(){
     var name1 = $("#player1-name").val();
     var name2 = $("#player2-name").val();
     if (!name1) {
-      name1 = "User 1";
+      name1 = "Pig 1";
     }
 
     if (!name2) {
-      name2 = "User 2";
+      name2 = "Pig 2";
     }
 
     var newPig1 = new Pig(name1);
