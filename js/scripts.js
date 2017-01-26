@@ -51,6 +51,14 @@ $(function(){
     //Main Variables
     var name1 = $("#player1-name").val();
     var name2 = $("#player2-name").val();
+    if (!name1) {
+      name1 = "User 1";
+    }
+
+    if (!name2) {
+      name2 = "User 2";
+    }
+
     var newPig1 = new Pig(name1);
     var newPig2 = new Pig(name2);
     thePigs.push(newPig1, newPig2);
