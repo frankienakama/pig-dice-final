@@ -3,7 +3,7 @@ body {
   font-family: 'Schoolbell', cursive;
 }
 
-li {
+li, p {
   font-size: 23px;
   padding-bottom: 10%;
 }
