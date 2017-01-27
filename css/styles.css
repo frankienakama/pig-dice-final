@@ -8,6 +8,10 @@ li {
   padding-bottom: 10%;
 }
 
+.game-alert-message-box {
+  margin-left: 30%;
+}
+
 .instructions {
   margin-right: 20%;
 }
@@ -241,4 +245,75 @@ li {
   top: 10px;
   left: 45px;
   box-shadow: -30px 0 #1c2944;
+}
+
+.whole-barn {
+  position: absolute;
+  height: 150px;
+  width: 250px;
+  left: 200px;
+  top: 70px;
+}
+
+.roof-body {
+  height: 100px;
+  width: 250px;
+  background: #ef5139;
+  position: relative;
+  box-shadow: 9px 0 #ba5243,
+              4px 15px 0 6px #fdff91,
+              0px 180px 0 80px #ef5139,
+              0px 180px 0 80px white,
+              0px 180px 0 90px #84443a;
+}
+
+.middle-roof {
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-bottom: 80px solid #84443a;
+  position: relative;
+  top: -80px;
+  box-shadow: 0 7px white;
+}
+
+.barn-roof-side1 {
+  width: 0;
+  height: 0;
+  border-left: 105px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 102px solid #84443a;
+  position: relative;
+  top: 80px;
+  left: -235px;
+  box-shadow: 0px 1px #872b1d,
+              7px 2px white;
+}
+
+.barn-roof-side2 {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 105px solid transparent;
+  border-bottom: 102px solid #84443a;
+  position: relative;
+  top: -22px;
+  left: 129px;
+  box-shadow: 0px 1px #872b1d,
+              -7px 2px white;
+}
+
+.barn-door {
+  height: 200px;
+  width: 280px;
+  background: #38291e;
+  position: relative;
+  top: 15px;
+  right: 145px;
+  box-shadow: 0 -2px 0 10px white,
+              -5px -5px #634a36 inset,
+              0 -185px 0 -60px #38291e;
+
+  border-radius: 5%;
 }
