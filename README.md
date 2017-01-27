@@ -1,7 +1,7 @@
 # Pig Dice
 ## by Sara Frandsen and Larry Eby
 
-## (PLACEHOLDER FOR READ STUFF)
+## (PLACEHOLDER FOR README STUFF)
 
 
 
@@ -30,9 +30,3 @@ Specs:
 7) First player to reach 100 is listed as winner, and game ends.
 
 8) Reset button appears when game ends.
-
-
-Ice Box:
-
-Keep track of previous games.
-Single Player Mode.
